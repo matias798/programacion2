@@ -1,0 +1,99 @@
+#include <stdlib.h>
+#include <stdio.h>
+#define CAPACIDAD 10
+//var
+int A[CAPACIDAD];
+int front = -1;
+int rear =-1;
+
+
+//Aniade un elemento al final de la cola
+void encolar(int x){
+
+//Llego al limite de mi capacidad
+if(rear == CAPACIDAD -1) { printf("Error:No puedes agregar mas elementos\n"); }
+//Caso de no tener elementos
+else if (front == -1 && rear ==-1)
+{ front = rear = 0;
+ A[rear] = x;
+}
+//Agregar elementos
+else
+{
+rear++;
+A[rear] = x;
+}
+
+}
+
+//Elimina y retorna el primer elemento de la cola. El segundo pasa a ser el primero luego de la operacion
+void desencolar(){
+
+if (front == -1 && rear ==-1)  {printf("Error:No puedes eliminar mas elementos\n");}
+
+else if (rear == front){
+front = rear = -1; 
+}
+
+else
+{ front= front + 1;}
+}
+
+//Retorna pero no elimina al primer elemento
+void frente(){
+
+if (front == -1 && rear ==-1)  {printf("Error:No se encuentran elementos\n");}
+
+else { printf("%d",A[front]); }
+
+}
+
+//Vacia la cola, el tama˜n´o pasa a ser cero
+void vaciaCola(){front = rear = -1; }
+
+//tamanio retorna el tamanio de la cola, el numero de elementos
+void tamanio(){int i;
+for(i = 0 ; i < rear+1 ;i++)
+{   printf("Stack: ");
+	printf("%d ",i);
+	printf("\n");
+    }
+}
+
+//Retorna verdadero si esta vacia.
+int estaVacia(){
+if(front == -1 && rear ==-1)
+{printf("Se encuentra vacio");}
+else
+{printf("Se encuentran elementos");
+}
+}
+
+//Muestra los elementos de forma mas simple 
+void Mostrar() {
+if (front == -1 && rear ==-1)
+{printf("Error:No se encuentran elementos\n");}
+else
+{
+int i;
+
+for(i = front ; i < rear+1 ;i++)
+{   printf("Stack: ");
+	printf("%d ",A[i]);
+	printf("\n");
+    }
+}
+}
+int main(){
+encolar(22);
+encolar(42);
+encolar(3);
+tamanio();
+
+}
+
+
+
+//notitas
+
+//void o int las funciones?
